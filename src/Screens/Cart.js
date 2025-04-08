@@ -74,23 +74,26 @@ const Cart = () => {
           <BackIcon />
         </TouchableOpacity>
       </View>
-
-      {/* Cart List */}
-      {cartItems.length > 0 ? (
-        <FlatList
-          data={cartItems}
-          keyExtractor={item => item.id.toString()}
-          renderItem={renderItem}
-          contentContainerStyle={styles.contentContainerStyle}
-          showsVerticalScrollIndicator={false}
-        />
-      ) : (
-        <Text style={styles.emptyCartText}>Your cart is empty...</Text>
-      )}
-
+  
+      {/* Main Content */}
+      <View style={styles.mainContent}>
+        {cartItems.length > 0 ? (
+          <FlatList
+            data={cartItems}
+            keyExtractor={item => item.id.toString()}
+            renderItem={renderItem}
+            contentContainerStyle={[styles.contentContainerStyle, { paddingBottom: 6 }]}
+            showsVerticalScrollIndicator={false}
+          />
+        ) : (
+          <Text style={styles.emptyCartText}>Your cart is empty...</Text>
+        )}
+      </View>
+  
+      {/* Grey Background */}
       <View style={styles.greyBackground}>
         <TouchableOpacity style={styles.btn} onPress={handleClearCart}>
-          <Text style={{ fontSize: 15 }}>Clear Cart Items</Text>
+          <Text style={{ fontSize: 15, color: 'black' }}>Clear Cart Items</Text>
           <TrashIcon height={20} width={20} />
         </TouchableOpacity>
         <TouchableOpacity
@@ -104,6 +107,7 @@ const Cart = () => {
       </View>
     </View>
   );
+  
 };
 
 export default Cart;
@@ -125,8 +129,11 @@ const styles = StyleSheet.create({
     color: '#000',
     fontWeight: 'bold',
   },
+  mainContent: {
+    flex: 1, // Occupy available space
+  },
   contentContainerStyle: {
-    paddingBottom: 20,
+    paddingBottom: 20, // Keep some padding at the bottom
   },
   emptyCartText: {
     fontSize: 16,
@@ -144,10 +151,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
   },
   btn: {
     backgroundColor: '#fff',

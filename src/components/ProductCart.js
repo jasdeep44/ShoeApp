@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgrey',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 55,
+    borderRadius: 5,
     borderWidth: 0.5,
     marginVertical: 5,
     // Uncomment for shadows

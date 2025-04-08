@@ -111,7 +111,7 @@ android {
             enable true
             reset()  // Reset the existing abi splits if needed
             include "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
-            universalApk false  // Generate a universal APK for all architectures if you want
+            universalApk true  // Generate a universal APK for all architectures if you want
         }
     }
 }
